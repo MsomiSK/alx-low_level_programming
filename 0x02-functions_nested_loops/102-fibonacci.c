@@ -1,4 +1,4 @@
-#include  <stdio>
+#include  <stdio.h>
 
 /**
  * main - prints the add of the fibonacci numbers
