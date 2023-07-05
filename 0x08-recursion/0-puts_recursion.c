@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * _putchar_recursion - a function that prints a string, followed by a \n
+ * _puts_recursion - a function that prints a string, followed by a \n
  * @s : input
  * Return: 0
  */
-void _putchar_recursion(char *s)
+void _puts_recursion(char *s)
 {
 	if (*s)
 	{
