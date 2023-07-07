@@ -1,65 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <string.h>
 
 /**
- * check_num - check-string there are digit.
- * @str: array str
+ * main - print sum of args positive numbers
+ * @argc: num arguments
+ * @argv: array arguments
  * Return: 0
  */
-int check_num(char *str)
-{
-	/*declare variables*/
-	unsigned int count;
 
-	count = 0;
-
-	while (count < strlen(str)) /*count string*/
-
-	{
-		if (!isdigit(str[count])) /*check if str there are digit*/
-		{
-			return (0);
-		}
-		count++;
-	}
-	return (1);
-}
-
-/**
- * main - print program name
- * @argc: count arguments
- * @argv: arguments
- * Return: 0
- */
 int main(int argc, char *argv[])
 {
-	/*declare variables*/
-	int count;
-	int str_to_int;
-	int sum = 0;
+	int j;
+	unsigned int k, sum = 0;
+	char *e;
 
-	count = 1;
-
-	while (count < argc) /*goes through whole array*/
-
+	if (argc > 1)
 	{
-		if (check_num(argv[count]))
-
+		for (j = 1; j < argc; j++)
 		{
-	str_to_int = atoi(argv[count]); /*ATOI --> convert string to int*/
-	sum += str_to_int;
-		}
-		/*the condition if one num contains symblos not digits*/
+			e = argv[j];
 
-		else
-		{
-			printf("error\n");
-			return (1);
+			for (k = 0; k < strlen(e); k++)
+			{
+				if (e[k] < 48 || e[k] > 57)
+				{
+					printf("error\n");
+					return (1);
+				}
+			}
+
+			sum += atoi(e);
+			e++;
 		}
-		count++;
+
+		printf("%d\n", sum);
 	}
-	printf("%d\n", sum); /*print sum*/
+	else
+	{
+		printf("0\n");
+	}
+
 	return (0);
 }
